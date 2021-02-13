@@ -6,9 +6,11 @@ public class MainCircleController : MonoBehaviour
 {
     [SerializeField]
     public GameObject smallCircle;
+    GameObject gameManager;
+
     void Start()
     {
-        
+        gameManager = GameObject.FindGameObjectWithTag("TagGameManager");
     }
 
     void Update()
@@ -22,5 +24,6 @@ public class MainCircleController : MonoBehaviour
     void SpawnSmallCircle()
     {
         Instantiate(smallCircle, transform.position, transform.rotation);
+        gameManager.GetComponent<GameManager>().SetSmallCircleText();
     }
 }

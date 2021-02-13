@@ -9,9 +9,12 @@ public class SmallCircleController : MonoBehaviour
 
     Rigidbody2D physics;
     bool motionController;
+    GameObject gameManager;
+
     void Start()
     {
         physics = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.FindGameObjectWithTag("TagGameManager");
     }
 
     void FixedUpdate()
@@ -28,6 +31,11 @@ public class SmallCircleController : MonoBehaviour
         {
             transform.SetParent(col.transform);
             motionController = true;
+        }
+
+        if(col.tag == "TagSmallCircle")
+        {
+            gameManager.GetComponent<GameManager>().GameOverMethod();
         }
     }
 }
