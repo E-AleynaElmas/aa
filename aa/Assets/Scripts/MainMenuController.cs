@@ -5,10 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public void StartGame()
+    private void Start()
     {
-        SceneManager.LoadScene("1");
+        //PlayerPrefs.DeleteAll();
     }
+
+    public void StartGame()
+    {        
+        int currentLevel = PlayerPrefs.GetInt("level");
+        if(currentLevel == 0)
+        {
+            SceneManager.LoadScene(currentLevel + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(currentLevel);
+        }
+
+    }
+
     public void ExitGame()
     {
         Application.Quit();

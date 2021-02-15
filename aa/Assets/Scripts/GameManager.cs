@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("level",int.Parse(SceneManager.GetActiveScene().name));
         spinningCircle = GameObject.FindGameObjectWithTag("TagSpinningCircle");
         mainCircle = GameObject.FindGameObjectWithTag("TagMainCircle");
         spinningCircleText.text = SceneManager.GetActiveScene().name;
